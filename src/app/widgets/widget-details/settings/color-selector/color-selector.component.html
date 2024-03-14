@@ -1,0 +1,6 @@
+<div class="color-opions">
+    <div class="square bg-{{color}}"
+         *ngFor="let color of colorOptions"
+         (click)="selectColor(color)"
+         [ngClass]="{'selected': color === selectedColor}"></div>
+</div>

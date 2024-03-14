@@ -1,0 +1,42 @@
+@import "colors.scss";
+
+.badge {
+    min-width: 221px;
+    height: 66px;
+    padding: 10.3px 13.89px 10.3px 11.91px;
+    border-radius: 5.95px;
+    gap: 11.91px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.desc-wrapper {
+    font-family: Cabin;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &.color-white {
+        color: $white;
+    }
+
+    &.color-green {
+        color: $green;
+    }
+
+    .action {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        margin: 0 !important;
+    }
+
+    .type-amount {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22px;
+        margin: 0 !important;
+    }
+}

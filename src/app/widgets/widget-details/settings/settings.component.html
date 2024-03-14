@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+    <div>
+        <div class="label">
+            Link to Public Profile
+            <img src="assets/images/info_icon.svg"
+                 [app-tooltip]="'This widget links directly to your public profile so that you can easily share your impact with your
+                 customers. Turn it off here if you do not want the badge to link to it.'"
+                 [app-tooltip-link]="'View Public Profile'" />
+        </div>
+        <mat-checkbox color="primary"
+                      formControlName="linked"></mat-checkbox>
+
+    </div>
+    <div>
+        <div class="label">Badge colour</div>
+        <app-color-selector formControlName="selectedColor"></app-color-selector>
+    </div>
+    <div>
+        <div class="label">Activate badge</div>
+        <mat-slide-toggle color="primary"
+                          formControlName="active"></mat-slide-toggle>
+    </div>
+</form>

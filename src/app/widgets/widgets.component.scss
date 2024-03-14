@@ -1,0 +1,26 @@
+@import "colors.scss";
+
+h3 {
+    font-family: 'Cabin';
+    width: 100%;
+    font-size: 30px;
+    color: $black;
+    line-height: 36px;
+    font-weight: 700;
+    padding-bottom: 12px;
+    border-bottom: #B0B0B0 solid 2px;
+    margin-bottom: 20px;
+}
+
+.widgets-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 5vw;
+}
+
+@media only screen and (max-width: 600px) {
+    .widgets-list {
+        flex-direction: column;
+        margin: 0 20px;
+    }
+}

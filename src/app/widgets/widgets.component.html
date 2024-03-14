@@ -1,0 +1,5 @@
+<h3>Per product widgets</h3>
+<div class="widgets-list">
+    <app-widget-details *ngFor="let widget of widgetList"
+                        [widgetId]="widget.id"></app-widget-details>
+</div>

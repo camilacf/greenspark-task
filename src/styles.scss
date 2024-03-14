@@ -1,1 +1,164 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+$my-palette: (
+  50: #e8eaf6,
+  100: #c5cae9,
+  200: #9fa8da,
+  300: #3B755F,
+  400: #5c6bc0,
+  500: #3B755F,
+  600: #3949ab,
+  700: #303f9f,
+  800: #283593,
+  900: #1a237e,
+  A100: #8c9eff,
+  A200: #536dfe,
+  A400: #3d5afe,
+  A700: #304ffe,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$greenspark-task-primary: mat.define-palette($my-palette);
+$greenspark-task-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$greenspark-task-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$greenspark-task-theme: mat.define-light-theme((color: (primary: $greenspark-task-primary,
+        accent: $greenspark-task-accent,
+        warn: $greenspark-task-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($greenspark-task-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+@import "assets/colors.scss";
+
+html,
+body {
+  height: calc(100% - 72px);
+  background-color: $light-grey;
+}
+
+body {
+  margin: 36px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.bg-green {
+  background-color: $green;
+}
+
+.bg-beige {
+  background-color: $beige;
+}
+
+//override material styles
+.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true]) ~ .mdc-checkbox__background {
+  border-color: #212121 !important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:focus:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control:enabled:hover:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
+  border-color: #21212180 !important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:focus ~ .mdc-checkbox__ripple,
+.mdc-checkbox .mdc-checkbox__native-control:hover ~ .mdc-checkbox__ripple,
+.mdc-checkbox:active .mdc-checkbox__native-control ~ .mdc-checkbox__ripple {
+  background-color: $green !important;
+  opacity: 0.16;
+}
+
+.mdc-switch.mdc-switch--selected:enabled .mdc-switch__icon,
+.mdc-switch.mdc-switch--unselected:enabled .mdc-switch__icon {
+  display: none;
+}
+
+.mdc-switch:enabled .mdc-switch__track::after {
+  border: 0.68px solid $dark-grey;
+  box-shadow: 0px 1.0254120826721191px 6.836080551147461px 0px $black;
+}
+
+.mdc-switch:enabled .mdc-switch__track::before,
+.mdc-switch.mdc-switch--unselected:enabled .mdc-switch__handle::after {
+  background: $light-grey !important;
+  border: 0.68px solid $light-green;
+  box-shadow: 0px 1.0254120826721191px 6.836080551147461px 0px #00000026 inset;
+}
+
+.mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after {
+  background: $light-grey !important;
+  border: 0.68px solid $green;
+}
+
+.mdc-switch.mdc-switch--unselected:enabled .mdc-switch__handle::after {
+  background: $light-grey !important;
+  border: 0.68px solid #F2EBDB;
+  box-shadow: 0px 0px 1.3672161102294922px 0px #00000059;
+}
+
+.mdc-switch.mdc-switch--selected:enabled:hover .mdc-switch__ripple::before,
+.mdc-switch.mdc-switch--selected:enabled:hover .mdc-switch__ripple::after,
+.mdc-switch.mdc-switch--unselected:enabled:hover .mdc-switch__ripple::before,
+.mdc-switch.mdc-switch--unselected:enabled:hover .mdc-switch__ripple::after,
+.mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__ripple::before,
+.mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__ripple::after,
+.mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__ripple::before,
+.mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__ripple::after {
+
+  background-color: $light-green !important;
+  opacity: 0.5;
+}
+
+.mdc-switch .mdc-switch__ripple {
+  height: 35px !important;
+  width: 35px !important;
+}

@@ -1,0 +1,7 @@
+<div class="wrapper">
+    <app-badge [widgetId]="widgetId"></app-badge>
+    <app-settings [selectedColor]="widget?.selectedColor"
+                  [active]="widget?.active"
+                  [linked]="widget?.linked"
+                  (settingsChanged)="onSettingsChange($event)"></app-settings>
+</div>

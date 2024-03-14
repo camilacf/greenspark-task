@@ -1,0 +1,12 @@
+<div class="badge"
+     [ngClass]="'bg-' + widget?.selectedColor">
+     <img class="logo"
+          [src]="logoUrl"
+          alt="logo">
+     <div class="desc-wrapper"
+          [ngClass]="'color-' + logoColor">
+          <p class="action">This product {{widget?.action}}</p>
+          <p class="type-amount">{{widget?.amount}}{{widget?.type === widgetType.carbon ? 'kgs' : ''}} {{widget?.type}}
+          </p>
+     </div>
+</div>

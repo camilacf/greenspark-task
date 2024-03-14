@@ -1,0 +1,18 @@
+@import "colors.scss";
+
+.color-opions {
+    display: flex;
+    gap: 4px;
+}
+
+.square {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &.selected {
+        border: 1.5px solid $dark-grey;
+        width: 14px;
+        height: 14px;
+    }
+}

@@ -1,0 +1,8 @@
+<div #tooltipWrapper
+     class="tooltip"
+     [style.left.px]="leftPosition"
+     [style.top.px]="parentBottom + tooltipHeight"
+     @tooltip>
+    {{ text }}
+    <a>{{link}}</a>
+</div>
